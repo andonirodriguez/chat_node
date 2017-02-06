@@ -1,0 +1,11 @@
+version: '2'
+services:
+
+  node:
+    build: .
+    volumes:
+      - .:/code
+      - /code/node_modules
+    command: nodejs index.js
+    ports:
+      - "3000:3000"

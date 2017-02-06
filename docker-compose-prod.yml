@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./chat_site.conf:/etc/nginx/conf.d/site.conf
+    ports:
+      - "80:80"
+
+    links:
+      - node
+
+  node:
+    build: .
+    command: nodejs index.js
+    ports:
+      - "3000:3000"
